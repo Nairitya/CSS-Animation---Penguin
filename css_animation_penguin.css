@@ -1,0 +1,272 @@
+:root {
+  --penguin-face: white;
+  --penguin-picorna: orange;
+  --penguin-skin: gray;
+}
+body {
+  background: linear-gradient(45deg, rgb(118, 201, 255), rgb(247, 255, 222));
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: clip;
+}
+
+.front-mountain {
+  height: 300px;
+  width: 300px;
+  background: linear-gradient(rgb(203, 241, 228), rgb(80, 183, 255));
+  transform: skew(0deg, 44deg);
+  position: absolute;
+  margin-top: 100px;
+  z-index: 2;
+}
+.back-mountain {
+  height: 300px;
+  width: 300px;
+  background: linear-gradient(rgb(203, 241, 228), rgb(80, 183, 255));
+  transform: rotate(45deg);
+  position: absolute;
+  top: 225px;
+  left: 110px;
+  z-index: 1;
+}
+.sun {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  right: -75px;
+  top: -75px;
+}
+.penguin {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  margin-top: 75px;
+  z-index: 4;
+  position: relative;
+  transition: 1s ease-in-out;
+}
+.penguin:active {
+  transform: scale(1.2);
+  cursor: not-allowed;
+}
+.penguin * {
+  position: absolute;
+}
+
+.penguin-head {
+  width: 50%;
+  height: 45%;
+  background: linear-gradient(45deg, var(--penguin-skin), rgb(239, 240, 228));
+  border-radius: 70% 70% 65% 65%;
+  left: 25%;
+  z-index: 1;
+  top: 10%;
+  animation: head-shake 2s linear infinite;
+}
+
+.face {
+  background-color: var(--penguin-face);
+  width: 60%;
+  height: 70%;
+  position: absolute;
+  top: 15%;
+  border-radius: 70% 70% 60% 60%;
+}
+.face.left {
+  left: 5%;
+}
+.face.right {
+  right: 5%;
+}
+.eye {
+  width: 15%;
+  height: 17%;
+  background-color: black;
+  border-radius: 50%;
+  top: 41%;
+  z-index: 1;
+  animation: eye-move 2s linear infinite;
+}
+.eye.left {
+  left: 25%;
+}
+.eye.right {
+  right: 25%;
+}
+.eyelid {
+  width: 150%;
+  height: 100%;
+  background-color: var(--penguin-face);
+  top: 21%;
+  left: -23%;
+  border-radius: 50%;
+}
+.blush {
+  background-color: pink;
+  width: 15%;
+  height: 10%;
+  border-radius: 50%;
+  top: 60%;
+  z-index: 1;
+}
+.blush.left {
+  left: 12%;
+}
+.blush.right {
+  right: 12%;
+}
+.beak {
+  background-color: var(--penguin-picorna);
+  height: 10%;
+  z-index: 1;
+
+  border-radius: 50%;
+}
+.beak.top {
+  width: 25%;
+  top: 55%;
+  left: 39%;
+}
+.beak.bottom {
+  width: 18%;
+  top: 60%;
+  left: 42%;
+}
+.chin {
+  background-color: #fff;
+  height: 70%;
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  top: 25%;
+  border-radius: 70% 70% 100% 100%;
+}
+
+.penguin-body {
+  width: 53%;
+  height: 45%;
+  background: linear-gradient(
+    45deg,
+    rgb(134, 133, 133) 0%,
+    rgb(234, 231, 231) 29%,
+    white 67%
+  );
+  border-radius: 80% 80% 100% 100%;
+  top: 40%;
+  left: 23.5%;
+}
+.penguin-body::before {
+  content: "";
+  background-color: var(--penguin-skin);
+  height: 45%;
+  width: 50%;
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  border-radius: 0% 0% 100% 100%;
+  opacity: 70%;
+}
+.shirt {
+  font: bold 25px Helvetica, sans-serif;
+  color: #6a6969;
+  top: 165px;
+  left: 127.5px;
+  z-index: 1;
+}
+.shirt div {
+  font-weight: initial;
+  left: 12px;
+  top: 22.5px;
+}
+
+.arm {
+  height: 60%;
+  width: 30%;
+  background: linear-gradient(90deg, var(--penguin-skin), rgb(209, 210, 199));
+  border-radius: 30% 30% 30% 120%;
+  z-index: -1;
+}
+
+.arm.left {
+  left: 5%;
+  top: 35%;
+  transform-origin: top left;
+  transform: rotate(130deg) scaleX(-1);
+  animation: wave 2s linear infinite;
+}
+.arm.right {
+  top: 0%;
+  right: -5%;
+  transform: rotate(-45deg);
+}
+.foot {
+  background-color: var(--penguin-picorna);
+  width: 30%;
+  height: 20%;
+  top: 90%;
+  border-radius: 50%;
+  z-index: -1;
+}
+.foot.left {
+  left: 15%;
+  transform: rotate(-10deg);
+}
+.foot.right {
+  right: 15%;
+  transform: rotate(10deg);
+}
+.ground {
+  width: 100vw;
+  height: 500px;
+  background: linear-gradient(90deg, rgb(88, 175, 236), rgb(182, 255, 255));
+  z-index: 3;
+  position: absolute;
+  top: calc(100vh - 380px);
+}
+
+@keyframes wave {
+  10% {
+    transform: rotate(110deg) scaleX(-1);
+  }
+
+  20% {
+    transform: rotate(130deg) scaleX(-1);
+  }
+  30% {
+    transform: rotate(110deg) scaleX(-1);
+  }
+  40% {
+    transform: rotate(130deg) scaleX(-1);
+  }
+}
+@keyframes head-shake {
+  10% {
+    transform: rotate(10deg);
+  }
+
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes eye-move {
+  40% {
+    top: 41%;
+  }
+  50% {
+    top: 39%;
+  }
+  60% {
+    top: 41%;
+  }
+}
